@@ -6,4 +6,4 @@
 ### Simple Scripts in Python
 
 
-### Simple Oracle Project
+### Simple PL Oracle SQL Project
