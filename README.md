@@ -1,3 +1,7 @@
 # Small_projects
 
-During my learning of web application development, I wrote several things and here are a few of these projects.
+During my learning of the Path of my penetration tester, I wrote some projects when learning
+
+Simple Web Application Projects
+
+Simple Python Scripts
