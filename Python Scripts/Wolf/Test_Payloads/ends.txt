@@ -1,0 +1,3 @@
+http://localhost/xvwa/vulnerabilities/reflected_xss/?item=
+http://localhost/xvwa/vulnerabilities/cmdi/?target=w
+http://localhost/xvwa/vulnerabilities/ssti/?name=ss&submit=

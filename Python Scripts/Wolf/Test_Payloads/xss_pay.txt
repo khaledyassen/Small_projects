@@ -1,0 +1,6 @@
+<script>confirm(2)</script>
+<img src=df onerror=confirm(2)>
+ss;f,f
+df;df,df
+;lfd
+b
