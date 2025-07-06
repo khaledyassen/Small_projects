@@ -1,0 +1,184 @@
+-- Insert sample data into the tables
+
+-- Insert into Department table
+INSERT INTO Department (Department_ID, Department_Name, Location)
+VALUES (1, 'Cardiology', 'Building A');
+INSERT INTO Department (Department_ID, Department_Name, Location)
+VALUES (2, 'Pediatrics', 'Building B');
+INSERT INTO Department (Department_ID, Department_Name, Location)
+VALUES (3, 'Emergency', 'Building C');
+INSERT INTO Department (Department_ID, Department_Name, Location)
+VALUES (4, 'Orthopedics', 'Building D');
+INSERT INTO Department (Department_ID, Department_Name, Location)
+VALUES (5, 'Surgery', 'Building F');
+INSERT INTO Department (Department_ID, Department_Name, Location)
+VALUES (6, 'Intensive', 'Building G');
+INSERT INTO Department (Department_ID, Department_Name, Location)
+VALUES (7, 'Neurology', 'Building H');
+INSERT INTO Department (Department_ID, Department_Name, Location)
+VALUES (8, 'Hussan', 'Building C');
+INSERT INTO Department (Department_ID, Department_Name, Location)
+VALUES (9, 'Oncology', 'Building D');
+INSERT INTO Department (Department_ID, Department_Name, Location)
+VALUES (10, 'Oncology', 'Building O');
+-- Insert additional departments as needed
+
+-- Insert into Doctor table
+INSERT INTO Doctor (Doctor_ID, Name, Specialization, Contact_Number, Email, Department_ID)
+VALUES (1, 'Dr. Smith', 'Cardiologist', '143-456-290', 'drsmith@gmail.com', 1);
+INSERT INTO Doctor (Doctor_ID, Name, Specialization, Contact_Number, Email, Department_ID)
+VALUES (2, 'Dr. khaled', 'Pediatrician', '987-6334-3210', 'drjohnson@gmail.com', 2);
+INSERT INTO Doctor (Doctor_ID, Name, Specialization, Contact_Number, Email, Department_ID)
+VALUES (3, 'Dr. hussan', 'Dermatology', '1244-456-7890', 'hussan@gmail.com', 3);
+INSERT INTO Doctor (Doctor_ID, Name, Specialization, Contact_Number, Email, Department_ID)
+VALUES (4, 'Dr. mohned', 'Emergency Medicine', '123-456-7890', 'mohned@gmail.com', 4);
+INSERT INTO Doctor (Doctor_ID, Name, Specialization, Contact_Number, Email, Department_ID)
+VALUES (5, 'Dr. rouf', 'Psychiatry', '144-456-7890', 'rouf@gmail.com', 5);
+INSERT INTO Doctor (Doctor_ID, Name, Specialization, Contact_Number, Email, Department_ID)
+VALUES (6, 'Dr. Smith', 'Neurology', '123-445-7340', 'Smith@gmail.com', 6);
+INSERT INTO Doctor (Doctor_ID, Name, Specialization, Contact_Number, Email, Department_ID)
+VALUES (7, 'Dr. baher', 'Cardiologist', '123-455-7230', 'baher@gmail.com', 7);
+INSERT INTO Doctor (Doctor_ID, Name, Specialization, Contact_Number, Email, Department_ID)
+VALUES (8, 'Dr. tarek', 'Obstetrics', '123-456-7821', 'Obstetrics@gmail.com', 8);
+INSERT INTO Doctor (Doctor_ID, Name, Specialization, Contact_Number, Email, Department_ID)
+VALUES (9, 'Dr. yassen', 'Pediatrics', '123-475-9090', 'yassen@gmail.com', 9);
+INSERT INTO Doctor (Doctor_ID, Name, Specialization, Contact_Number, Email, Department_ID)
+VALUES (10, 'Dr. hoda', 'Pediatrician', '123-412-7450', 'drsmith@gmail.com', 10);
+-- Insert additional doctors as needed
+
+-- Insert into Nurse table
+INSERT INTO Nurse (Nurse_ID, Name, Contact_Number, Email, Department_ID)
+VALUES (1, 'Nurse Brown', '555-123-4567', 'nursebrown@gmail.com', 1);
+INSERT INTO Nurse (Nurse_ID, Name, Contact_Number, Email, Department_ID)
+VALUES (2, 'Nurse Davis', '555-987-6543', 'Davis@gmail.com', 2);
+INSERT INTO Nurse (Nurse_ID, Name, Contact_Number, Email, Department_ID)
+VALUES (3, 'Nurse hussan', '555-447-6543', 'hussan@gmail.com', 2);
+INSERT INTO Nurse (Nurse_ID, Name, Contact_Number, Email, Department_ID)
+VALUES (4, 'Nurse bffsf', '555-987-6543', 'bffsf@gmail.com', 2);
+INSERT INTO Nurse (Nurse_ID, Name, Contact_Number, Email, Department_ID)
+VALUES (5, 'Nurse erwee', '555-987-6543', 'erwee@gmail.com', 2);
+INSERT INTO Nurse (Nurse_ID, Name, Contact_Number, Email, Department_ID)
+VALUES (6, 'Nurse hhghgh', '555-987-6543', 'hhghgh@gmail.com', 2);
+INSERT INTO Nurse (Nurse_ID, Name, Contact_Number, Email, Department_ID)
+VALUES (7, 'Nurse wal', '555-987-6543', 'wal@gmail.com', 2);
+INSERT INTO Nurse (Nurse_ID, Name, Contact_Number, Email, Department_ID)
+VALUES (8, 'Nurse vsss', '555-987-6543', 'vsss@gmail.com', 2);
+INSERT INTO Nurse (Nurse_ID, Name, Contact_Number, Email, Department_ID)
+VALUES (9, 'Nurse xxzas', '555-987-6543', 'xxzas@gmail.com', 2);
+INSERT INTO Nurse (Nurse_ID, Name, Contact_Number, Email, Department_ID)
+VALUES (10, 'Nurse yuujgmbmbm', '555-987-6543', 'yuujgmbmbm@gmail.com', 2);
+
+
+-- Insert into Patient table
+INSERT INTO Patient (Patient_ID, Name, Age, Gender, Contact_Number, Medical_History)
+VALUES (1, 'John Smith', 40, 'Male', '111-222-3333', 'No significant medical history.');
+INSERT INTO Patient (Patient_ID, Name, Age, Gender, Contact_Number, Medical_History)
+VALUES (2, 'Jane Doe', 30, 'Female', '444-555-6666', 'pressure.');
+INSERT INTO Patient (Patient_ID, Name, Age, Gender, Contact_Number, Medical_History)
+VALUES (3, 'fgfgfgzxzx', 50, 'Male', '111-222-3333', 'No significant medical history.');
+INSERT INTO Patient (Patient_ID, Name, Age, Gender, Contact_Number, Medical_History)
+VALUES (4, 'vcddfdfdf', 80, 'Female', '444-555-6666', 'pressureز');
+INSERT INTO Patient (Patient_ID, Name, Age, Gender, Contact_Number, Medical_History)
+VALUES (5, 'khaled', 61, 'Male', '111-222-3333', 'No significant medical history.');
+INSERT INTO Patient (Patient_ID, Name, Age, Gender, Contact_Number, Medical_History)
+VALUES (6, 'testetst', 20, 'Female', '444-555-6666', 'pressure.');
+INSERT INTO Patient (Patient_ID, Name, Age, Gender, Contact_Number, Medical_History)
+VALUES (7, 'nojjhjhj', 10, 'Male', '111-222-3333', 'No significant medical history.');
+INSERT INTO Patient (Patient_ID, Name, Age, Gender, Contact_Number, Medical_History)
+VALUES (8, 'reeeesr', 70, 'Female', '444-555-6666', 'pressure.');
+INSERT INTO Patient (Patient_ID, Name, Age, Gender, Contact_Number, Medical_History)
+VALUES (9, 'mnnnvvbvb', 90, 'Male', '111-222-3333', 'No significant medical history.');
+INSERT INTO Patient (Patient_ID, Name, Age, Gender, Contact_Number, Medical_History)
+VALUES (10, 'ytttyyererer', 15, 'Female', '444-555-6666', 'pressure');
+-- Insert additional patients as needed
+
+-- Insert into Rooms table
+INSERT INTO Rooms (Room_ID, Room_Number, Room_Type, Availability)
+VALUES (1, '101', 'General', 'Available');
+INSERT INTO Rooms (Room_ID, Room_Number, Room_Type, Availability)
+VALUES (2, '102', 'VIP', 'Not Available');
+INSERT INTO Rooms (Room_ID, Room_Number, Room_Type, Availability)
+VALUES (3, '103', 'General', 'Available');
+INSERT INTO Rooms (Room_ID, Room_Number, Room_Type, Availability)
+VALUES (4, '104', 'VIP', 'Not Available');
+INSERT INTO Rooms (Room_ID, Room_Number, Room_Type, Availability)
+VALUES (5, '105', 'General', 'Available');
+INSERT INTO Rooms (Room_ID, Room_Number, Room_Type, Availability)
+VALUES (6, '106', 'VIP', 'Not Available');
+INSERT INTO Rooms (Room_ID, Room_Number, Room_Type, Availability)
+VALUES (7, '107', 'General', 'Available');
+INSERT INTO Rooms (Room_ID, Room_Number, Room_Type, Availability)
+VALUES (8, '108', 'VIP', 'Not Available');
+INSERT INTO Rooms (Room_ID, Room_Number, Room_Type, Availability)
+VALUES (9, '109', 'General', 'Available');
+INSERT INTO Rooms (Room_ID, Room_Number, Room_Type, Availability)
+VALUES (10, '110', 'VIP', 'Not Available');
+-- Insert additional rooms as needed
+
+-- Insert into Medicines table
+INSERT INTO Medicines (Medicine_ID, Medicine_Name, Manufacturer, Expiry_Date)
+VALUES (1, 'Aspirin', 'ABC Pharmaceuticals', TO_DATE('2024-06-30', '2023-7-2'));
+INSERT INTO Medicines (Medicine_ID, Medicine_Name, Manufacturer, Expiry_Date)
+VALUES (2, 'Amoxicillin', 'XYZ Pharmaceuticals', TO_DATE('2023-12-31', '2022-5-20'));
+INSERT INTO Medicines (Medicine_ID, Medicine_Name, Manufacturer, Expiry_Date)
+VALUES (3, 'Acetaminophen', 'ABC Pharmaceuticals', TO_DATE('2024-06-30', '2023-7-2'));
+INSERT INTO Medicines (Medicine_ID, Medicine_Name, Manufacturer, Expiry_Date)
+VALUES (4, 'Naproxen', 'XYZ Pharmaceuticals', TO_DATE('2023-12-31', '2022-5-20'));
+INSERT INTO Medicines (Medicine_ID, Medicine_Name, Manufacturer, Expiry_Date)
+VALUES (5, 'Penicillin', 'ABC Pharmaceuticals', TO_DATE('2024-06-30', '2023-7-2'));
+INSERT INTO Medicines (Medicine_ID, Medicine_Name, Manufacturer, Expiry_Date)
+VALUES (6, 'Sertraline', 'abc Pharmaceuticals', TO_DATE('2023-12-31', '2022-5-20'));
+INSERT INTO Medicines (Medicine_ID, Medicine_Name, Manufacturer, Expiry_Date)
+VALUES (7, 'Bupropion', 'ABC Pharmaceuticals', TO_DATE('2024-06-30', '2023-7-2'));
+INSERT INTO Medicines (Medicine_ID, Medicine_Name, Manufacturer, Expiry_Date)
+VALUES (8, 'Amoxicillin', 'vcbv Pharmaceuticals', TO_DATE('2023-12-31', '2020-6-12'));
+INSERT INTO Medicines (Medicine_ID, Medicine_Name, Manufacturer, Expiry_Date)
+VALUES (9, 'Loratadine', 'ABC Pharmaceuticals', TO_DATE('2024-06-30', '2023-7-2'));
+INSERT INTO Medicines (Medicine_ID, Medicine_Name, Manufacturer, Expiry_Date)
+VALUES (10, 'Fexofenadine', 'XYZ Pharmaceuticals', TO_DATE('2023-12-31', '2022-7-2'));
+-- Insert additional medicines as needed
+
+-- Insert into Equipments table
+INSERT INTO Equipments (Equipment_ID, Equipment_Name, Quantity, Condition)
+VALUES (1, 'Stethoscope', 5, 'Good');
+INSERT INTO Equipments (Equipment_ID, Equipment_Name, Quantity, Condition)
+VALUES (2, 'Blood Pressure Monitor', 3, 'Excellent');
+INSERT INTO Equipments (Equipment_ID, Equipment_Name, Quantity, Condition)
+VALUES (3, 'Stethoscope', 6, 'Good');
+INSERT INTO Equipments (Equipment_ID, Equipment_Name, Quantity, Condition)
+VALUES (4, 'Blood Pressure Monitor', 7, 'half');
+INSERT INTO Equipments (Equipment_ID, Equipment_Name, Quantity, Condition)
+VALUES (5, 'Stethoscope', 20, 'Good');
+INSERT INTO Equipments (Equipment_ID, Equipment_Name, Quantity, Condition)
+VALUES (6, 'Blood Pressure Monitor', 4, 'bad');
+INSERT INTO Equipments (Equipment_ID, Equipment_Name, Quantity, Condition)
+VALUES (7, 'Stethoscope', 8, 'Good');
+INSERT INTO Equipments (Equipment_ID, Equipment_Name, Quantity, Condition)
+VALUES (8, 'Blood Pressure Monitor', 1, 'very good');
+INSERT INTO Equipments (Equipment_ID, Equipment_Name, Quantity, Condition)
+VALUES (9, 'Stethoscope', 9, 'Good');
+INSERT INTO Equipments (Equipment_ID, Equipment_Name, Quantity, Condition)
+VALUES (10, 'Blood Pressure Monitor', 3, 'Excellent');
+-- Insert additional equipment as needed
+
+-- Insert into Billing table
+INSERT INTO Billing (Billing_ID, Patient_ID, Amount, Billing_Date)
+VALUES (1, 1, 100.00, SYSDATE);
+INSERT INTO Billing (Billing_ID, Patient_ID, Amount, Billing_Date)
+VALUES (2, 2, 250.00, SYSDATE);
+INSERT INTO Billing (Billing_ID, Patient_ID, Amount, Billing_Date)
+VALUES (3, 3, 200.00, SYSDATE);
+INSERT INTO Billing (Billing_ID, Patient_ID, Amount, Billing_Date)
+VALUES (4, 4, 450.00, SYSDATE);
+INSERT INTO Billing (Billing_ID, Patient_ID, Amount, Billing_Date)
+VALUES (5, 5, 300.00, SYSDATE);
+INSERT INTO Billing (Billing_ID, Patient_ID, Amount, Billing_Date)
+VALUES (6, 6, 250.00, SYSDATE);
+INSERT INTO Billing (Billing_ID, Patient_ID, Amount, Billing_Date)
+VALUES (7, 7, 50.00, SYSDATE);
+INSERT INTO Billing (Billing_ID, Patient_ID, Amount, Billing_Date)
+VALUES (8, 8, 700.00, SYSDATE);
+INSERT INTO Billing (Billing_ID, Patient_ID, Amount, Billing_Date)
+VALUES (9, 9, 800.00, SYSDATE);
+INSERT INTO Billing (Billing_ID, Patient_ID, Amount, Billing_Date)
+VALUES (10, 10, 250.00, SYSDATE);

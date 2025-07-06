@@ -1,0 +1,327 @@
+set serveroutput on;
+
+
+** create oracle sql pl to extract the Department_ID , Department_Name and Location when give it Department_Name value
+
+SET SERVEROUTPUT ON;
+
+DECLARE
+  v_DepartmentID NUMBER;
+  v_DepartmentName VARCHAR2(100);
+  v_Location VARCHAR2(100);
+  v_InputDepartmentName VARCHAR2(100) := 'YourDepartmentName'; -- Replace with the desired Department_Name value
+
+BEGIN
+  SELECT Department_ID, Department_Name, Location
+  INTO v_DepartmentID, v_DepartmentName, v_Location
+  FROM Department
+  WHERE Department_Name = v_InputDepartmentName;
+
+  -- Output the department information
+  DBMS_OUTPUT.PUT_LINE('Department ID: ' || v_DepartmentID);
+  DBMS_OUTPUT.PUT_LINE('Department Name: ' || v_DepartmentName);
+  DBMS_OUTPUT.PUT_LINE('Location: ' || v_Location);
+
+EXCEPTION
+  WHEN NO_DATA_FOUND THEN
+    DBMS_OUTPUT.PUT_LINE('No department found for the given Department_Name.');
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.PUT_LINE('An error occurred while retrieving department information.');
+END;
+/
+
+================================================================================================
+
+
+** insert  the Doctor_ID,Name,Specialization,Contact_Number,Email,Department_ID in the Doctor table using declare
+
+DECLARE
+  v_DoctorID NUMBER := 123; -- Replace with the desired Doctor_ID
+  v_Name VARCHAR2(100) := 'Doctor Name';
+  v_Specialization VARCHAR2(100) := 'Specialization';
+  v_ContactNumber VARCHAR2(20) := 'Contact Number';
+  v_Email VARCHAR2(100) := 'Email';
+  v_DepartmentID NUMBER := 456; -- Replace with the desired Department_ID
+BEGIN
+  INSERT INTO Doctor (Doctor_ID, Name, Specialization, Contact_Number, Email, Department_ID)
+  VALUES (v_DoctorID, v_Name, v_Specialization, v_ContactNumber, v_Email, v_DepartmentID);
+
+  COMMIT; -- Commit the changes
+
+  DBMS_OUTPUT.PUT_LINE('Record inserted successfully.');
+EXCEPTION
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.PUT_LINE('An error occurred while inserting the record.');
+    ROLLBACK; -- Rollback the changes if an error occurs
+END;
+/
+
+
+=======================================================================================================================================
+
+** create oracle sql pl to extract the values of the Equipments table in loop  without using procedures
+
+SET SERVEROUTPUT ON;
+
+DECLARE
+  v_EquipmentID NUMBER;
+  v_EquipmentName VARCHAR2(100);
+  v_Quantity NUMBER;
+BEGIN
+  FOR EquipmentRecord IN (SELECT Equipment_ID, Equipment_Name, Quantity FROM Equipments) LOOP
+    v_EquipmentID := EquipmentRecord.Equipment_ID;
+    v_EquipmentName := EquipmentRecord.Equipment_Name;
+    v_Quantity := EquipmentRecord.Quantity;
+
+    -- Output the equipment information
+    DBMS_OUTPUT.PUT_LINE('Equipment ID: ' || v_EquipmentID);
+    DBMS_OUTPUT.PUT_LINE('Equipment Name: ' || v_EquipmentName);
+    DBMS_OUTPUT.PUT_LINE('Quantity: ' || v_Quantity);
+
+    -- Add any additional processing logic here
+    -- You can perform calculations, make decisions, etc.
+
+    DBMS_OUTPUT.PUT_LINE('-----------------------------------');
+  END LOOP;
+EXCEPTION
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.PUT_LINE('An error occurred while retrieving equipment information.');
+END;
+/
+
+=======================================================================================================
+
+** Extract the value for Patient using condition if the age >60
+
+DECLARE
+  v_MinimumAge NUMBER := 60;
+BEGIN
+  FOR PatientRecord IN (SELECT * FROM Patient) LOOP
+    IF PatientRecord.Age > v_MinimumAge THEN
+      -- Access the patient record using PatientRecord.ColumnName
+      DBMS_OUTPUT.PUT_LINE('Patient ID: ' || PatientRecord.Patient_ID);
+      DBMS_OUTPUT.PUT_LINE('Name: ' || PatientRecord.Name);
+      DBMS_OUTPUT.PUT_LINE('Age: ' || PatientRecord.Age);
+      DBMS_OUTPUT.PUT_LINE('Gender: ' || PatientRecord.Gender);
+      -- Add more columns as needed
+
+      DBMS_OUTPUT.PUT_LINE('-----------------------------------');
+    END IF;
+  END LOOP;
+EXCEPTION
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.PUT_LINE('An error occurred while retrieving patient information.');
+END;
+/
+
+
+==================================================================================================
+
+** update the values of Patient_ID,Name,Age,Gender,Contact_Number,Medical_History for Patient table using declare
+
+DECLARE
+  v_PatientID NUMBER := 123; -- Replace with the desired Patient_ID
+  v_NewName VARCHAR2(100) := 'New Name';
+  v_NewAge NUMBER := 30; -- Replace with the new age value
+  v_NewGender VARCHAR2(10) := 'Male'; -- Replace with the new gender value
+  v_NewContactNumber VARCHAR2(20) := '1234567890'; -- Replace with the new contact number
+  v_NewMedicalHistory VARCHAR2(80) := 'New medical history';
+BEGIN
+  UPDATE Patient
+  SET Name = v_NewName,
+      Age = v_NewAge,
+      Gender = v_NewGender,
+      Contact_Number = v_NewContactNumber,
+      Medical_History = v_NewMedicalHistory
+  WHERE Patient_ID = v_PatientID;
+
+  COMMIT; -- Commit the changes
+
+  DBMS_OUTPUT.PUT_LINE('Patient record updated successfully.');
+EXCEPTION
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.PUT_LINE('An error occurred while updating the patient record.');
+    ROLLBACK; -- Rollback the changes if an error occurs
+END;
+/
+
+============================================================================================================================
+
+** create oracle sql pl  to extract the  Name ,Department_ID, and Email of Nurse  table in loop 
+
+
+SET SERVEROUTPUT ON;
+
+DECLARE
+  v_Name VARCHAR2(100);
+  v_DepartmentID NUMBER;
+  v_Email VARCHAR2(100);
+BEGIN
+  FOR NurseRecord IN (SELECT Name, Department_ID, Email FROM Nurse) LOOP
+    v_Name := NurseRecord.Name;
+    v_DepartmentID := NurseRecord.Department_ID;
+    v_Email := NurseRecord.Email;
+
+    -- Output the nurse information
+    DBMS_OUTPUT.PUT_LINE('Name: ' || v_Name);
+    DBMS_OUTPUT.PUT_LINE('Department ID: ' || v_DepartmentID);
+    DBMS_OUTPUT.PUT_LINE('Email: ' || v_Email);
+
+    -- Add any additional processing logic here
+    -- You can perform calculations, make decisions, etc.
+
+    DBMS_OUTPUT.PUT_LINE('-----------------------------------');
+  END LOOP;
+EXCEPTION
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.PUT_LINE('An error occurred while retrieving nurse information.');
+END;
+/
+
+
+
+
+=======================================================================================================
+** create procedure for rooms table to extract the data that Availability is Availabile
+
+CREATE OR REPLACE PROCEDURE GetAvailableRooms
+AS
+  CURSOR RoomCursor IS
+    SELECT Room_ID, Room_Number, Room_Type, Availability
+    FROM Rooms
+    WHERE Availability = 'Available';
+
+  v_RoomID NUMBER;
+  v_RoomNumber VARCHAR2(20);
+  v_RoomType VARCHAR2(50);
+  v_Availability VARCHAR2(50);
+
+BEGIN
+  FOR RoomRecord IN RoomCursor LOOP
+    v_RoomID := RoomRecord.Room_ID;
+    v_RoomNumber := RoomRecord.Room_Number;
+    v_RoomType := RoomRecord.Room_Type;
+    v_Availability := RoomRecord.Availability;
+
+    -- Output the room information
+    DBMS_OUTPUT.PUT_LINE('Room ID: ' || v_RoomID);
+    DBMS_OUTPUT.PUT_LINE('Room Number: ' || v_RoomNumber);
+    DBMS_OUTPUT.PUT_LINE('Room Type: ' || v_RoomType);
+    DBMS_OUTPUT.PUT_LINE('Availability: ' || v_Availability);
+
+    -- Add any additional processing logic here
+    -- You can perform calculations, make decisions, etc.
+
+    DBMS_OUTPUT.PUT_LINE('-----------------------------------');
+  END LOOP;
+
+EXCEPTION
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.PUT_LINE('An error occurred while retrieving room information.');
+END;
+/
+
+
+* For executing 
+BEGIN
+  -- Enable DBMS_OUTPUT to see the output
+  DBMS_OUTPUT.ENABLE;
+
+  -- Call the procedure
+  GetAvailableRooms;
+END;
+/
+
+
+==========================================================================================
+
+** remove the Medicine_ID,Medicine_Name,  Manufacturer and Expiry_Date from the Medicines table based on Medicine_ID 
+
+DECLARE
+  v_MedicineID NUMBER := 123; -- Replace with the desired Medicine_ID
+BEGIN
+  FOR MedicineRecord IN (SELECT Medicine_ID, Medicine_Name, Manufacturer, Expiry_Date FROM Medicines WHERE Medicine_ID = v_MedicineID) LOOP
+    DELETE FROM Medicines
+    WHERE CURRENT OF MedicineRecord;
+  END LOOP;
+  COMMIT; -- Commit the changes
+
+  DBMS_OUTPUT.PUT_LINE('Records deleted successfully.');
+EXCEPTION
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.PUT_LINE('An error occurred while deleting records.');
+    ROLLBACK; -- Rollback the changes if an error occurs
+END;
+/
+
+
+
+======================================================================================================
+
+** update the values of Medicine_ID,Medicine_Name,Manufacturer,Expiry_Date for Medicines table using declare
+
+DECLARE
+  v_MedicineID NUMBER := 123; -- Replace with the desired Medicine_ID
+  v_NewMedicineName VARCHAR2(100) := 'New Medicine Name';
+  v_NewManufacturer VARCHAR2(100) := 'New Manufacturer';
+  v_NewExpiryDate DATE := TO_DATE('2023-12-31', '2024-12-31'); -- Replace with the new expiry date
+BEGIN
+  UPDATE Medicines
+  SET Medicine_Name = v_NewMedicineName,
+      Manufacturer = v_NewManufacturer,
+      Expiry_Date = v_NewExpiryDate
+  WHERE Medicine_ID = v_MedicineID;
+
+  COMMIT; -- Commit the changes
+
+  DBMS_OUTPUT.PUT_LINE('Medicine record updated successfully.');
+EXCEPTION
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.PUT_LINE('An error occurred while updating the medicine record.');
+    ROLLBACK; -- Rollback the changes if an error occurs
+END;
+/
+
+
+=======================================================================================================
+   May be remove it
+** create procedure to extract the Billing for patient depend on Patient_ID
+
+CREATE OR REPLACE PROCEDURE GetPatientBillingByID (
+  p_PatientID IN NUMBER
+)
+AS
+  v_PatientName VARCHAR2(100);
+  v_BillingDate DATE;
+  v_Amount NUMBER;
+  v_Description VARCHAR2(200);
+BEGIN
+  SELECT p.Name, b.Billing_Date, b.Amount, b.Description
+  INTO v_PatientName, v_BillingDate, v_Amount, v_Description
+  FROM Patient p
+  INNER JOIN Billing b ON p.Patient_ID = b.Patient_ID
+  WHERE p.Patient_ID = p_PatientID;
+
+  -- Output the billing information
+  DBMS_OUTPUT.PUT_LINE('Patient Name: ' || v_PatientName);
+  DBMS_OUTPUT.PUT_LINE('Billing Date: ' || TO_CHAR(v_BillingDate, 'DD-MON-YYYY'));
+  DBMS_OUTPUT.PUT_LINE('Amount: ' || v_Amount);
+  DBMS_OUTPUT.PUT_LINE('Description: ' || v_Description);
+EXCEPTION
+  WHEN NO_DATA_FOUND THEN
+    DBMS_OUTPUT.PUT_LINE('Billing information not found for the given Patient ID.');
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.PUT_LINE('An error occurred while retrieving billing information.');
+END;
+/
+
+* For executing 
+
+BEGIN
+  -- Enable DBMS_OUTPUT to see the output
+  DBMS_OUTPUT.ENABLE;
+  
+  -- Call the procedure with the desired Patient ID
+  GetPatientBillingByID(p_PatientID => 1);
+END;
+/
